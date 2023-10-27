@@ -1,0 +1,7 @@
+search-paths:
+  - ../target/wasm32-wasi/debug
+
+instantiations:
+  $input:
+    arguments:
+      fermyon:github-oauth/github-oauth-flow: github-oauth

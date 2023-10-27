@@ -1,0 +1,13 @@
+spin_manifest_version = "1"
+authors = ["Michelle Dhanani <michelle@fermyon.com>"]
+description = ""
+name = "http"
+trigger = { type = "http", base = "/" }
+version = "0.1.0"
+
+[[component]]
+id = "hello"
+source = "target/wasm32-wasi/debug/github_oauth_handler.wasm"
+[component.trigger]
+route = "/hello"
+executor = { type = "wasi" }

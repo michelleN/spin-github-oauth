@@ -1,0 +1,16 @@
+package fermyon:github-oauth
+
+interface github-oauth-flow {
+    validate: func(headers: list<tuple<string,string>>, state-param: string) -> bool
+    exchange: func(code: string, redirect-url: string, client-id: string, client-secret: string) -> string
+}
+
+world github-oauth-library {
+    export github-oauth-flow
+    import wasi:http/outgoing-handler
+}
+
+world github-oauth-handler {
+    import github-oauth-flow
+    export wasi:http/incoming-handler
+}

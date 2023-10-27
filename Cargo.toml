@@ -1,0 +1,24 @@
+[package]
+name = "github-oauth"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+cargo-component-bindings = "0.2.0"
+
+[lib]
+crate-type = ["cdylib"]
+
+[package.metadata.component]
+#package = "fermyon:github-oauth"
+adapter = "wasi_snapshot_preview1.wasm"
+
+[package.metadata.component.target]
+path = "wit"
+world = "github-oauth-library"
+
+[package.metadata.component.target.dependencies]
+"wasi:http" = { path = "wit/deps/http" }
+"wasi:io" = { path = "wit/deps/io" }
+
+[package.metadata.component.dependencies]
